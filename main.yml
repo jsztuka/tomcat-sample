@@ -1,0 +1,35 @@
+---
+  - name: "Deploy tomcat server with sample app"
+    hosts: host1
+    connection: local 
+    tasks:
+    - name: "Check if app is already running"
+      script: /usr/local/bin/pytest
+      register: test_result
+      ignore_errors: true
+       
+    - name: "Build - Run - Test container"
+      block:
+       - name: "Build Docker image from Dockerfile"
+         docker_image:
+           name: sample
+           build:
+             path: docker
+             pull: yes
+           source: build
+           state: present
+
+       - name: "Running the container"
+         docker_container:
+           name: sample
+           image: sample:latest
+           ports:
+            - "8080:8080"
+           state: started 
+
+       - name: "Wait few seconds till application is up"
+         command: sleep 5
+
+       - name: "Make sure app is running"
+         script: /usr/local/bin/pytest
+      when: test_result is failed
