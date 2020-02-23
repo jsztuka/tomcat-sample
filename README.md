@@ -4,7 +4,7 @@ A very basic structure for hosting sample application on tomcat application serv
 # Prerequisities
 1. Docker is installed on the machine
 2. Ansible is installed on the machine
-3. Python/Pytest is installed on the machine
+3. Python/Pytest is installed on the machine on default location ```/usr/local/bin/pytest```
 4. Port 8080 is available
 
 # Steps
