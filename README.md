@@ -9,7 +9,7 @@ A very basic structure for hosting sample application on tomcat application serv
 
 # Steps
 * Clone git repo to your local repository
-* Run ansible playbook with predefined hosts file : sudo ansible-playbook -i hosts main.yml
+* Run ansible playbook with predefined hosts file : ```sudo ansible-playbook -i hosts main.yml```
 * All done - application should be hosted on http://localhost:8080/sample
 
 
