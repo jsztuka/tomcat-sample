@@ -35,3 +35,4 @@
          script: /usr/local/bin/pytest
       when: test_result is failed
 #this is comment that I want to add
+#this is my second comment
