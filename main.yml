@@ -18,6 +18,7 @@
              pull: yes
            source: build
            state: present
+           #such line
 
        - name: "Running the container"
          docker_container:
